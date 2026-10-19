@@ -4,7 +4,7 @@
    ============================================================ */
 const CONFIG = {
   links: {
-    inscripcion: "#",
+    inscripcion: "https://estudiantes.ugb.edu.sv/UVibe",  
     whatsapp: ""
   },
   ai: {
