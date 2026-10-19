@@ -25,7 +25,7 @@ const GUIDES = [
 
   { titulo: "Cómo completar tus 16 horas", cat: "Participación",
     desc: "Control de asistencia, horas acumuladas y recomendaciones para aprovechar cada jornada.",
-    url: "", paginas: 4, peso: "800 KB" },
+    url: "https://ugbedu-my.sharepoint.com/:b:/g/personal/smss016224_ugb_edu_sv/IQAzq0ln3KQASqPtOxb-4nfAAUW06EZBHzsjia0sPu27p-A?e=9phCKW", paginas: 4, peso: "800 KB" },
 
   //{ titulo: "Buenas prácticas y convivencia", cat: "Participación",
   // desc: "Lineamientos para participar con respeto y aprovechar al máximo cada espacio de aprendizaje.",
