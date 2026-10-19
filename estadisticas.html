@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Estadísticas | Semana U-Vibe</title>
+<link rel="icon" type="img/png" href="img/Logougb-azul.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  body{padding-bottom:3rem}
+  .dash{max-width:1100px;margin:0 auto;padding:1.5rem 1.2rem 0}
+  .dash__top{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;margin:1rem 0 1.4rem}
+  .dash__top h1{font-size:clamp(1.6rem,4vw,2.3rem)}
+  .dash__tools{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+  .dash select{font:inherit;color:var(--deep);background:var(--white);border:0;border-radius:99px;padding:.5rem 1rem}
+  .src{display:inline-block;font-size:.85rem;padding:.35rem .8rem;border-radius:99px;background:var(--card);color:var(--grey)}
+  .src b{color:var(--lime)}
+  .notice{background:var(--card);border-left:4px solid var(--lime);border-radius:12px;padding:.9rem 1.1rem;margin-bottom:1.2rem;font-size:.92rem;color:var(--grey)}
+  .notice a{color:var(--lime)}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1.2rem}
+  .kpi{background:var(--card);border-radius:var(--r);padding:1.2rem 1.4rem}
+  .kpi b{display:block;font:800 2.2rem var(--f-title);color:var(--lime)}
+  .kpi span{font-size:.9rem;color:var(--grey)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .panel{background:var(--card);border-radius:var(--r);padding:1.3rem 1.4rem;margin-bottom:1rem}
+  .panel h2{font-size:1.1rem;margin-bottom:1rem}
+  .panel--wide{grid-column:1/-1}
+  .bars{display:grid;gap:.65rem}
+  .bar{display:grid;grid-template-columns:minmax(110px,38%) 1fr auto;gap:.7rem;align-items:center;font-size:.9rem}
+  .bar__track{background:rgba(255,255,255,.1);border-radius:99px;height:14px;overflow:hidden}
+  .bar__fill{display:block;height:100%;background:var(--lime);border-radius:99px;transition:width .6s var(--ease)}
+  .bar--warn .bar__fill{background:#ffb74d}
+  .bar b{font-family:var(--f-title)}
+  .cols{display:flex;align-items:flex-end;gap:3px;height:190px;padding-top:.5rem}
+  .col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;min-width:0}
+  .col i{display:block;width:100%;background:var(--lime);border-radius:6px 6px 0 0;min-height:2px}
+  .col small{font-size:.62rem;color:var(--soft);margin-top:.3rem;white-space:nowrap}
+  .col em{font:normal 700 .7rem var(--f-title);color:var(--white);margin-bottom:.2rem}
+  .none{color:var(--soft);font-size:.92rem}
+  .btn--tiny{padding:.4rem 1rem;font-size:.85rem}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}.bar{grid-template-columns:1fr auto}.bar__track{grid-column:1/-1;order:3}.col small:nth-of-type(n){font-size:.55rem}}
+</style>
+</head>
+<body>
+<div class="dash">
+  <a href="index.html"><img src="img/logo-ugb-blanco.png" alt="Universidad Gerardo Barrios" width="130" height="78"></a>
+
+  <div class="dash__top">
+    <div>
+      <h1>Estadísticas de uso</h1>
+      <span class="src" id="src">Cargando…</span>
+    </div>
+    <div class="dash__tools">
+      <label class="skip" for="range">Rango de días</label>
+      <select id="range">
+        <option value="7">Últimos 7 días</option>
+        <option value="14" selected>Últimos 14 días</option>
+        <option value="30">Últimos 30 días</option>
+        <option value="60">Últimos 60 días</option>
+      </select>
+      <button class="btn btn--sm" id="reload" type="button">Actualizar</button>
+      <a class="btn btn--sm btn--ghost" href="https://clarity.microsoft.com" target="_blank" rel="noopener">Abrir Clarity</a>
+    </div>
+  </div>
+
+  <div class="notice" id="notice" hidden></div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <section class="panel">
+    <h2>Visitas por día</h2>
+    <div class="cols" id="visits"></div>
+  </section>
+
+  <div class="grid2">
+    <section class="panel"><h2>Preguntas más frecuentes al chatbot (por tema)</h2><div class="bars" id="topics"></div></section>
+    <section class="panel"><h2>Preguntas que U-vi no supo responder</h2><div class="bars" id="unans"></div></section>
+    <section class="panel panel--wide"><h2>Búsquedas más realizadas en el sitio</h2><div class="bars" id="searches"></div></section>
+    <section class="panel panel--wide" id="textsPanel" hidden><h2>Textos de preguntas sin respuesta (limpios, sin datos personales)</h2><div class="bars" id="texts"></div></section>
+  </div>
+
+  <p class="none" style="margin-top:1rem">Las visitas cuentan sesiones (una por navegador y por sesión). Clarity muestra además mapas de calor, grabaciones, países y dispositivos.</p>
+  <p style="margin-top:1rem"><button class="btn btn--sm btn--ghost btn--tiny" id="clear" type="button" hidden>Borrar datos de este navegador</button></p>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/analytics.js"></script>
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const LABEL = {
+    inscripcion: "Inscripción y cupos", actividades: "Actividades y talleres", campus_ubicacion: "Campus y ubicación",
+    horas: "Horas y puntos", obligatorio: "Obligatoriedad y clases", elegibilidad: "Quién puede participar",
+    asistencia_encuesta: "Asistencia y encuesta", materiales_costos: "Materiales y costos", modalidad: "Modalidad y enlaces",
+    especiales: "Congresos y casos especiales", adn_categorias: "ADN y categorías", general: "Información general",
+    saludo: "Saludos", otros: "Otros / sin clasificar"
+  };
+  let mode = "local";
+
+  async function load(days) {
+    const T = window.UVI_TRACK;
+    if (T.endpointOn()) {
+      try {
+        const res = await fetch(T.endpoint + (T.endpoint.includes("?") ? "&" : "?") + "days=" + days, { cache: "no-store" });
+        if (!res.ok) throw new Error("http");
+        const data = await res.json();
+        mode = "shared";
+        return data;
+      } catch { mode = "error"; }
+    }
+    if (mode !== "error") mode = "local";
+    const from = lastDays(days)[0];
+    return T.aggregate(T.localEvents().filter(e => e.d >= from));
+  }
+
+  function lastDays(n) {
+    const out = [];
+    for (let i = n - 1; i >= 0; i--) {
+      const d = new Date(); d.setDate(d.getDate() - i);
+      out.push(d.toLocaleDateString("sv-SE"));
+    }
+    return out;
+  }
+
+  function bars(el, obj, { warn = false, label = k => k, max = 8, empty = "Aún no hay datos." } = {}) {
+    const rows = Object.entries(obj || {}).sort((a, b) => b[1] - a[1]).slice(0, max);
+    if (!rows.length) { el.innerHTML = `<p class="none">${empty}</p>`; return; }
+    const top = rows[0][1];
+    el.innerHTML = rows.map(([k, v]) => `
+      <div class="bar ${warn ? "bar--warn" : ""}">
+        <span>${esc(label(k))}</span>
+        <span class="bar__track"><span class="bar__fill" style="width:${Math.max(4, v / top * 100)}%"></span></span>
+        <b>${v}</b>
+      </div>`).join("");
+  }
+
+  async function render() {
+    const days = +$("#range").value;
+    const data = await load(days);
+    const list = lastDays(days);
+    const vis = list.map(d => (data.visits || {})[d] || 0);
+    const totalVis = vis.reduce((a, b) => a + b, 0);
+    const t = data.totals || { questions: 0, unanswered: 0, searches: 0 };
+    const pct = t.questions ? Math.round(t.unanswered / t.questions * 100) : 0;
+
+    $("#kpis").innerHTML = [
+      [totalVis, `Visitas (últimos ${days} días)`],
+      [t.questions, `Preguntas al chatbot (${days} días)`],
+      [pct + "%", "Preguntas sin respuesta"],
+      [t.searches, `Búsquedas en el sitio (${days} días)`]
+    ].map(([n, l]) => `<div class="kpi"><b>${n}</b><span>${l}</span></div>`).join("");
+
+    const max = Math.max(1, ...vis);
+    const step = days > 14 ? Math.ceil(days / 10) : 1;
+    $("#visits").innerHTML = list.map((d, i) => `
+      <div class="col" title="${d}: ${vis[i]} visitas">
+        <em>${vis[i] || ""}</em><i style="height:${vis[i] / max * 100}%"></i>
+        <small>${i % step === 0 ? d.slice(5) : "&nbsp;"}</small>
+      </div>`).join("");
+
+    bars($("#topics"), data.topics, { label: k => LABEL[k] || k });
+    bars($("#unans"), data.unanswered, { warn: true, label: k => LABEL[k] || k, empty: "¡Sin preguntas sin respuesta!" });
+    bars($("#searches"), data.searches, { max: 10, empty: "Aún no hay búsquedas." });
+
+    const tx = data.unansweredTexts || {};
+    $("#textsPanel").hidden = !Object.keys(tx).length;
+    if (Object.keys(tx).length) bars($("#texts"), tx, { warn: true, max: 15 });
+
+    const src = $("#src"), note = $("#notice");
+    note.hidden = false;
+    if (mode === "shared") {
+      src.innerHTML = "Fuente: <b>hoja compartida</b> (todos los visitantes)";
+      note.hidden = true;
+    } else if (mode === "error") {
+      src.innerHTML = "Fuente: <b>solo este navegador</b>";
+      note.innerHTML = "No se pudo leer la hoja compartida. Revisa la URL en <code>CONFIG.analytics.endpoint</code> (js/data.js). Mientras tanto se muestran solo los datos de este navegador.";
+    } else {
+      src.innerHTML = "Fuente: <b>solo este navegador</b> (modo prueba)";
+      note.innerHTML = "Todavía no está conectada la hoja compartida, por eso aquí solo ves lo que se hizo en este navegador. Para ver los datos de <b>todos</b> los estudiantes, sigue el paso 3 de <code>LEEME-ANALITICA.md</code>. Las visitas, mapas de calor y grabaciones reales ya las tienes en <a href=\"https://clarity.microsoft.com\" target=\"_blank\" rel=\"noopener\">Microsoft Clarity</a>.";
+    }
+    $("#clear").hidden = mode === "shared";
+  }
+
+  $("#range").addEventListener("change", render);
+  $("#reload").addEventListener("click", render);
+  $("#clear").addEventListener("click", () => { if (confirm("¿Borrar los datos guardados en este navegador?")) { UVI_TRACK.clearLocal(); render(); } });
+  render();
+})();
+</script>
+</body>
+</html>

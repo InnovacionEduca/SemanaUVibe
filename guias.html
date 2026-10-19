@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guías | U-Vibe</title>
+<!-- Logo que aparece en la pestaña del navegador -->
+<link rel="icon" type="img/png" href="img/Logougb-azul.png">
+<meta name="description" content="Descarga las guías oficiales de la Semana U-Vibe y prepárate para vivir la U.">
+<meta name="theme-color" content="#1A237E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/guias.css">
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<!-- ===== MENÚ (igual al del inicio; los enlaces apuntan a index.html) ===== -->
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a href="index.html#inicio" aria-label="UGB - Inicio"><img src="img/logo-ugb-blanco.png" alt="Universidad Gerardo Barrios" width="150" height="50"></a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span></button>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a href="index.html#inicio">Inicio</a>
+      <a href="index.html#actividades">Actividades</a>
+      <a href="guias.html" class="is-active" aria-current="page">Guías</a>
+      <a href="#" data-link="inscripcion" target="_blank" rel="noopener">Inscripción</a>
+      <a href="index.html#beneficios">Beneficios</a>
+      <button type="button" class="btn btn--sm" data-open-chat>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h12a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H9l-4 3v-3a3 3 0 0 1-1-2V7a3 3 0 0 1 1-3Zm14 8h1a2 2 0 0 0 2-2v-2h-1v4Z"/></svg>
+        Iniciar chat con U-vi</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- ===== ENCABEZADO ===== -->
+<section class="ghero">
+  <div class="hero__net" aria-hidden="true"></div>
+  <div class="wrap ghero__in">
+    <div>
+      <p class="kicker pill">Centro de guías</p>
+      <h1>Todo lo que necesitas para <em>vivir la U-Vibe</em></h1>
+      <p class="lead" style="margin-left:0">Descarga las guías oficiales en PDF y sigue el camino paso a paso: explora, elige, inscríbete, participa y evalúa.</p>
+      <div class="prog" aria-live="polite">
+        <div class="prog__row"><span id="prog-text">Cargando…</span><b id="prog-pct">0%</b></div>
+        <div class="prog__bar"><i id="prog-bar"></i></div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- ===== BUSCADOR + FILTROS + GUÍAS ===== -->
+<section class="sec sec--deep" id="guias">
+  <div class="wrap">
+    <div class="gtools">
+      <label class="gsearch"><span class="sr">Buscar guía</span>
+        <input type="search" id="g-text" placeholder="Buscar una guía… (ej. inscripción)" autocomplete="off"></label>
+      <div class="chips" id="chips" role="group" aria-label="Filtrar por tema"></div>
+    </div>
+    <p class="count" id="g-count" aria-live="polite"></p>
+    <div class="ggrid" id="ggrid"></div>
+  </div>
+</section>
+
+<!-- ===== AYUDA ===== -->
+<section class="sec">
+  <div class="wrap gcta">
+    <img src="img/viby-chat.webp" alt="" width="96" height="96" loading="lazy">
+    <div><h2>¿No encuentras lo que buscas?</h2><p class="lead" style="margin-left:0">Pregúntale a U-vi, tu asistente virtual, sobre horarios, ubicaciones y horas acumuladas.</p></div>
+    <button type="button" class="btn" data-open-chat>Chatear con U-vi</button>
+  </div>
+</section>
+</main>
+
+<!-- ===== PIE DE PÁGINA ===== -->
+<footer class="foot">
+  <div class="wrap foot__grid">
+
+    <!-- Marca -->
+    <div class="foot__brand">
+      <a href="#inicio" class="foot__logo" aria-label="UGB - Innovación y gestión académica">
+        <img src="img/logo-ico.png" alt="Universidad Gerardo Barrios" width="80" height="20" loading="lazy">
+        <span>Innovación y<br>gestión académica</span>
+      </a>
+    </div>
+
+    <!-- Facultades -->
+    <div class="foot__col">
+      <h3 class="foot__title">Facultades</h3>
+      <ul class="foot__list foot__list--2">
+        <li>Ciencias de la Salud</li>
+        <li>Ciencias Empresariales</li>
+        <li>Ciencias Jurídicas</li>
+        <li>Ciencias y Humanidades</li>
+        <li>Ciencia y Tecnología</li>
+        <li>Ingeniería y Arquitectura</li>
+      </ul>
+    </div>
+
+    <!-- Accesos rápidos de la Semana U-Vibe -->
+    <div class="foot__col">
+      <h3 class="foot__title">Semana U-Vibe</h3>
+      <ul class="foot__list">
+        <li><a href="estadisticas.html">Actividades</a></li>
+        <li><a href="#" data-link="inscripcion" target="_blank" rel="noopener">Inscripción</a></li>
+        <li><button type="button" class="uvi-open" data-open-chat>Chatear con U-vi</button></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap foot__bottom">
+    <p>Copyright © <span id="year">2026</span>. Todos Los Derechos Reservados.</p>
+  </div>
+</footer>
+
+<!-- Botón flotante del chatbot -->
+<button type="button" class="fab" data-open-chat aria-label="Chatear con U-vi" aria-expanded="false" aria-controls="uvi-root">
+  <span class="fab__msg">¡Hola! Soy <b>U-vi</b><br>¿En qué puedo ayudarte?</span>
+  <img src="img/viby-chat.webp" alt="" width="72" height="72">
+</button>
+
+<script src="js/data.js"></script>        <!-- reutiliza CONFIG.links (inscripción y chat) -->
+<script src="js/guias-data.js"></script>  <!-- AQUÍ se agregan las guías -->
+<script src="js/guias.js"></script>
+
+<script src="js/analytics.js"></script>
+<script src="js/uvi-knowledge.js"></script>
+<script src="js/main.js"></script>
+<script src="js/uvi-chat.js"></script>
+</body>
+</html>
