@@ -4,7 +4,7 @@
    ============================================================ */
 const CONFIG = {
   links: {
-    inscripcion: "https://estudiantes.ugb.edu.sv/UVibe",  
+    inscripcion: "#",
     whatsapp: ""
   },
   ai: {
@@ -57,7 +57,7 @@ const SUBIMG = {
 const STEPS = [
   {i:"compass",t:"Explora",d:"Explora las actividades y descubre lo que tenemos para ti."},
   {i:"list",t:"Elige",d:"Elige los talleres y conferencias que más te interesen."},
-  {i:"user",t:"Inscríbete",d:"Realiza la inscripción desde el portal del estudiante UGB."},
+  {i:"user",t:"Inscríbete",d:"Realiza la inscripción desde el portal del estudiante UGB. Una vez te inscribas, no podrás darte de baja."},
   {i:"users",t:"Participa",d:"Completa las 16 horas requeridas participando activamente."},
   {i:"clip",t:"Evalúa",d:"Contesta la encuesta de satisfacción al finalizar."}
 ];
@@ -65,7 +65,7 @@ const STEPS = [
 const BENEFITS = [
   {i:"user",t:"Red de contactos",d:"Amplía tu red conectando con profesionales y estudiantes."},
   {i:"puzzle",t:"Nuevas habilidades",d:"Aprende nuevas habilidades saliendo de tu zona de confort."},
-  {i:"badge",t:"Perfil profesional",d:"Fortalece tu perfil profesional."},
+  {i:"badge",t:"Perfil profesional",d:"Fortalece tu perfil profesional con habilidades transversales clave."},
   {i:"book",t:"Salir de lo cotidiano",d:"Disfruta experiencias diferentes."}
 ];
 
