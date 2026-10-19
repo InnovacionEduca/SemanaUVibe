@@ -140,7 +140,7 @@
     puntos: "No. Las actividades no dan puntos para tus materias.",
     masHoras: "Algunas acreditan más horas por su nivel de exigencia o trabajo autónomo fuera del horario.",
     inscripcion: "Entra al Portal del Estudiante > Semana U-Vibe, elige talleres que sumen 16 horas sin cruces de horario y confirma. Solo puedes hacerlo mientras el período esté abierto.",
-    cambios: "Solo mientras el período de inscripción esté abierto. Después, los cupos se bloquean.",
+    cambios: "Las inscripciones no se pueden modificar ni cancelar. Verifica cuidadosamente tu elección antes de inscribirte.",
     cancelar: "Escribe al correo de tu docente responsable para liberar tu cupo.",
     multiples: "Sí, siempre que sumen máximo 16 horas, no se crucen y haya cupos.",
     tope: "No. El máximo es 16 horas.",
