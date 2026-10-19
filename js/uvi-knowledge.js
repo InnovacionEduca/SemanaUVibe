@@ -86,7 +86,7 @@ const UVI_KNOWLEDGE = {
     where: "Portal del Estudiante (Sistema Interno, módulo Semana U-Vibe)",
     note: "Proceso en línea en 4 pasos: 1) Ingresa al Portal del Estudiante. 2) Entra al menú Semana U-Vibe. 3) Explora las ADN y selecciona talleres que sumen 16 horas (revisa cruces de horario). 4) Confirma la inscripción.",
     changes:
-      "Puedes inscribirte y desinscribirte ÚNICAMENTE mientras el período oficial esté abierto. Una vez cerrada la matrícula, los cupos quedan bloqueados.",
+      "Las inscripciones no se pueden modificar ni cancelar. Verifica cuidadosamente tu elección antes de inscribirte.",
     cancel:
       "Si no podrás asistir, cancela tu inscripción enviando un mensaje a tu docente responsable al correo oficial para liberar el cupo.",
     multiple:
