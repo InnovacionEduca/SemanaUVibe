@@ -4,7 +4,7 @@
    ============================================================ */
 const CONFIG = {
   links: {
-    inscripcion: "#",
+    inscripcion: "https://estudiantes.ugb.edu.sv/UVibe",
     whatsapp: ""
   },
   ai: {
@@ -76,61 +76,61 @@ const CATEGORIES = [
   {id:"Vínculos con el mundo",i:"globe"}
 ];
 
-/* Constructor de actividad
-   A(cat, subcat, name, day, time, place, seats, hours, campus, instructor, modalidad) */
-const A = (cat, subcat, name, day, time, place, seats, hours, campus, instructor, modalidad) =>
-  ({cat, subcat, name, day, time, place, seats, hours, campus, instructor, modalidad});
+/* Constructor de actividad (Sin cupos)
+   A(cat, subcat, name, day, time, place, hours, campus, instructor, modalidad) */
+const A = (cat, subcat, name, day, time, place, hours, campus, instructor, modalidad) =>
+  ({cat, subcat, name, day, time, place, hours, campus, instructor, modalidad});
 
 const ACTIVITIES = [
   /* ============ PROPUESTAS SM (Prior 1 y 2) ============ */
-  A("Bien al 100","Salud Preventiva y Hábitos Saludables","Paso a paso saludable","Lunes","7:00 a.m. - 10:30 a.m.","Campus Salitre",50,4,"San Miguel","Profa. Cecibel Ortega","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","U-Vibe ambiental","Jueves","7:00 a.m. - 4:10 p.m.","Espacio externo",5,8,"San Miguel","Dennys Fuentes","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Una semilla, un nuevo comienzo","Lunes","7:00 a.m. - 4:10 p.m.","Campus Salitre",150,8,"San Miguel","Glenda Rivera","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Raíces que dejan huellas","Miércoles","7:00 a.m. - 4:10 p.m.","Campus Salitre",200,8,"San Miguel","Enrique Marenco","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Experiencia vivencial en el apiario","Jueves","7:00 a.m. - 4:10 p.m.","Espacio externo",30,16,"San Miguel","Ing. Rudy Felipe Henández","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Salitre limpio: unidos por nuestro río","Viernes","7:00 a.m. - 11:30 a.m.","Campus Salitre",50,16,"San Miguel","Ing. Milena Ramírez","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Misión Costa Limpia: recuperación y economía circular","Jueves","7:00 a.m. - 4:10 p.m.","Espacio externo",50,16,"San Miguel","Ing. Wilmer Hernandez","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Desafío U-Salitre","Miércoles","7:00 a.m. - 11:30 a.m.","Campus Salitre",50,8,"San Miguel","Victor Torres","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Desafío U-Salitre","Jueves","7:00 a.m. - 11:30 a.m.","Campus Salitre",50,8,"San Miguel","Victor Torres","Presencial"),
-  A("ImpulsaTech","Empleabilidad, Liderazgo y Marca Personal","Conecta en 60 segundos","Miércoles","7:00 a.m. - 4:10 p.m.","Espacio externo",30,16,"San Miguel","Roxana Chévez","Presencial"),
-  A("Vínculos con el mundo","Voluntariado y Compromiso Social","Voluntariado con Huellas","Lunes y Martes (preparación) · Miércoles (visita)","8:00 a.m. - 12:00 p.m.","GB-N2-03 y Espacio externo",15,16,"San Miguel","Roxana Chévez","Presencial"),
-  A("Vínculos con el mundo","Voluntariado y Compromiso Social","Voluntariado con Huellas","Lunes y Martes (preparación) · Jueves (visita)","8:00 a.m. - 12:00 p.m. · 1:00 p.m. - 5:00 p.m.","GB-N2-03 y Espacio externo",15,16,"San Miguel","Roxana Chévez","Presencial"),
-  A("Vínculos con el mundo","Voluntariado y Compromiso Social","Voluntariado con Huellas","Lunes y Martes (preparación) · Viernes (visita)","8:00 a.m. - 12:00 p.m.","GB-N2-03 y Espacio externo",15,16,"San Miguel","Roxana Chévez","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Visita al Chorrerón de San Fernando","Lunes","7:00 a.m. - 4:10 p.m.","Espacio externo",50,16,"San Miguel","José German Ventura","Presencial"),
-  A("Vínculos con el mundo","Movilidad Académica y Proyección Global","Periodismo de ciencia","Lunes","8:00 a.m. - 3:30 p.m.","GB-N2-S2 y Campus Salitre",50,8,"San Miguel","Nurian Luna de Quintanilla","Presencial"),
-  A("Vínculos con el mundo","Voluntariado y Compromiso Social","De carita a carita","Lunes a Jueves (preparación) · Viernes (actividad)","8:50 a.m. - 12:20 p.m. · 12:40 p.m. - 4:10 p.m.","MR-N2-01 y Espacio externo",10,16,"San Miguel","Roxana Chevez","Presencial"),
-  A("ImpulsaTech","Investigación y Competencias Académicas","Ciencia que inspira, vocación que transforma","Lunes","8:00 a.m. - 5:00 p.m.","Espacio externo",350,16,"San Miguel","Dra. Milena, Lic. William y Licda Claudia Reyes","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Amigables con la playa","Miércoles","7:00 a.m. - 4:10 p.m.","Espacio externo",118,16,"San Miguel","Lic. William Villegas","Presencial"),
-  A("ImpulsaTech","Innovación Aplicada y Visitas Técnicas","Dev Expedition: más allá del aula","Viernes","7:00 a.m. - 4:10 p.m.","Espacio externo",48,16,"San Miguel","Krissia Orellana","Presencial"),
-  A("Vínculos con el mundo","Inclusión, Diversidad y Empatía Comunitaria","Sosteniendo al mundo y su humanidad diversa en nuestras manos","Martes","8:00 a.m. - 12:00 p.m.","Espacio externo",40,8,"San Miguel","Lic. Allison Palacios","Presencial"),
-  A("Vínculos con el mundo","Inclusión, Diversidad y Empatía Comunitaria","Sosteniendo al mundo y su humanidad diversa en nuestras manos","Miércoles","1:00 p.m. - 5:00 p.m.","Espacio externo",40,8,"San Miguel","Lic. Allison Palacios","Presencial"),
-  A("Vínculos con el mundo","Voluntariado y Compromiso Social","Jugando, creando y aprendiendo","Lunes","8:00 a.m. - 12:00 p.m.","Espacio externo",65,8,"San Miguel","Lic. Miguel Yanes","Presencial"),
-  A("Vínculos con el mundo","Voluntariado y Compromiso Social","Jugando, creando y aprendiendo","Lunes","8:00 a.m. - 12:00 p.m.","Espacio externo",65,8,"San Miguel","Lic. Miguel Yanes","Presencial"),
-  A("Vínculos con el mundo","Inclusión, Diversidad y Empatía Comunitaria","Historias que nos unen","Miércoles","8:00 a.m. - 5:00 p.m.","Espacio externo",30,8,"San Miguel","Lic. Mayra Ferrufino","Presencial"),
-  A("Vínculos con el mundo","Voluntariado y Compromiso Social","Huellas de sabiduría y ternura","Viernes","8:00 a.m. - 5:00 p.m.","Espacio externo",30,8,"San Miguel","Lic. Guadalupe Avelar","Presencial"),
-  A("Express-Arte","Literatura, Narrativa y Fomento Lector","Una historia para vivir, imaginar y transformar","Jueves","8:00 a.m. - 12:00 p.m.","Espacio externo",30,4,"San Miguel","Lcda. Blanca Sosa","Presencial"),
-  A("Vínculos con el mundo","Movilidad Académica y Proyección Global","Intercambio académico a Barcelona, España","Lunes y Martes","7:00 a.m. - 4:10 p.m.","Espacio externo",11,16,"San Miguel","Ing. Rudy Felipe Henandez","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Eco-Costa: limpieza de playa Punta Chiquirín","Martes","7:00 a.m. - 10:30 a.m.","Espacio externo",24,16,"San Miguel","Ing. Raúl Flores","Presencial"),
-  A("ImpulsaTech","Innovación Aplicada y Visitas Técnicas","Visita técnica a empresa distribuidora","Jueves","7:00 a.m. - 11:30 a.m.","Espacio externo",24,16,"San Miguel","Ing. Raúl Flores","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Guardianes del mar","Lunes","7:00 a.m. - 4:10 p.m.","Espacio externo",25,16,"San Miguel","Arq. Arline Carballo","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Guardianes del mar","Lunes","7:00 a.m. - 4:10 p.m.","Espacio externo",25,16,"San Miguel","Arq. Arline Carballo","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Manos al mar: jornada de limpieza","Martes","7:00 a.m. - 4:10 p.m.","Espacio externo",40,16,"San Miguel","Ing. Rene A. Martinez","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Manos al mar: jornada de limpieza","Martes","7:00 a.m. - 4:10 p.m.","Espacio externo",40,16,"San Miguel","Ing. Rene A. Martinez","Presencial"),
-  A("ImpulsaTech","Innovación Aplicada y Visitas Técnicas","Visita técnica académica al Ingenio Chaparrastique","Martes","7:00 a.m. - 4:10 p.m.","Espacio externo",40,8,"San Miguel","Ing. Dagoberto Ramírez","Presencial"),
-  A("ImpulsaTech","Innovación Aplicada y Visitas Técnicas","De la teoría a la práctica: visita técnica a empresa Alas Doradas","Viernes","7:00 a.m. - 4:10 p.m.","Espacio externo",30,8,"San Miguel","Ing. Darwin Cruz","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Misión Costa Limpia: recuperación y economía circular","Martes","7:00 a.m. - 4:10 p.m.","Espacio externo",40,16,"San Miguel","Ing. Wilmer Hernandez","Presencial"),
-  A("ImpulsaTech","Innovación Aplicada y Visitas Técnicas","Lagunas de estabilización son la solución","Miércoles","7:00 a.m. - 4:10 p.m.","Espacio externo",35,16,"San Miguel","Inga. Daysi Acosta","Presencial"),
-  A("ImpulsaTech","Innovación Aplicada y Visitas Técnicas","Lagunas de estabilización son la solución","Miércoles","7:00 a.m. - 4:10 p.m.","Espacio externo",35,16,"San Miguel","Inga. Daysi Acosta","Presencial"),
-  A("ImpulsaTech","Innovación Aplicada y Visitas Técnicas","Del cemento a la construcción","Martes","7:00 a.m. - 4:10 p.m.","Espacio externo",40,8,"San Miguel","Ing. Elena Quintanilla","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Birdwatching en El Salitre","Miércoles","7:00 a.m. - 10:30 a.m.","Campus Salitre",40,8,"San Miguel","Ariadna Rivas","Presencial"),
-  A("Express-Arte","Creatividad Manual y Artes Aplicadas","Expresión creativa a través de la flora","Jueves","7:00 a.m. - 4:10 p.m.","Campus Salitre",40,16,"San Miguel","Ariadna Rivas","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Descubre el rol de tu carrera ante la crisis ambiental","Viernes","7:00 a.m. - 4:10 p.m.","Campus Salitre",40,16,"San Miguel","Ariadna Rivas","Presencial"),
-  A("ImpulsaTech","Investigación y Competencias Académicas","Intercambio con Semillero de investigación","Martes","Por definir en el grupo cerrado","Espacio externo",10,16,"San Miguel","Laura Chavarría de Cocar","Presencial"),
-  A("Vínculos con el mundo","Voluntariado y Compromiso Social","De carita a carita","Lunes a Jueves (preparación) · Viernes (actividad)","8:50 a.m. - 12:20 p.m. · 12:40 p.m. - 4:10 p.m.","MR-N2-01 y Espacio externo",10,16,"San Miguel","Roxana Chevez","Presencial"),
+  A("Bien al 100","Salud Preventiva y Hábitos Saludables","Paso a paso saludable","Lunes","7:00 a.m. - 10:30 a.m.","Campus Salitre",4,"San Miguel","Profa. Cecibel Ortega","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","U-Vibe ambiental","Jueves","7:00 a.m. - 4:10 p.m.","Espacio externo",8,"San Miguel","Dennys Fuentes","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Una semilla, un nuevo comienzo","Lunes","7:00 a.m. - 4:10 p.m.","Campus Salitre",8,"San Miguel","Glenda Rivera","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Raíces que dejan huellas","Miércoles","7:00 a.m. - 4:10 p.m.","Campus Salitre",8,"San Miguel","Enrique Marenco","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Experiencia vivencial en el apiario","Jueves","7:00 a.m. - 4:10 p.m.","Espacio externo",16,"San Miguel","Ing. Rudy Felipe Henández","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Salitre limpio: unidos por nuestro río","Viernes","7:00 a.m. - 11:30 a.m.","Campus Salitre",16,"San Miguel","Ing. Milena Ramírez","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Misión Costa Limpia: recuperación y economía circular","Jueves","7:00 a.m. - 4:10 p.m.","Espacio externo",16,"San Miguel","Ing. Wilmer Hernandez","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Desafío U-Salitre","Miércoles","7:00 a.m. - 11:30 a.m.","Campus Salitre",8,"San Miguel","Victor Torres","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Desafío U-Salitre","Jueves","7:00 a.m. - 11:30 a.m.","Campus Salitre",8,"San Miguel","Victor Torres","Presencial"),
+  A("ImpulsaTech","Empleabilidad, Liderazgo y Marca Personal","Conecta en 60 segundos","Miércoles","7:00 a.m. - 4:10 p.m.","Espacio externo",16,"San Miguel","Roxana Chévez","Presencial"),
+  A("Vínculos con el mundo","Voluntariado y Compromiso Social","Voluntariado con Huellas","Lunes y Martes (preparación) · Miércoles (visita)","8:00 a.m. - 12:00 p.m.","GB-N2-03 y Espacio externo",16,"San Miguel","Roxana Chévez","Presencial"),
+  A("Vínculos con el mundo","Voluntariado y Compromiso Social","Voluntariado con Huellas","Lunes y Martes (preparación) · Jueves (visita)","8:00 a.m. - 12:00 p.m. · 1:00 p.m. - 5:00 p.m.","GB-N2-03 y Espacio externo",16,"San Miguel","Roxana Chévez","Presencial"),
+  A("Vínculos con el mundo","Voluntariado y Compromiso Social","Voluntariado con Huellas","Lunes y Martes (preparación) · Viernes (visita)","8:00 a.m. - 12:00 p.m.","GB-N2-03 y Espacio externo",16,"San Miguel","Roxana Chévez","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Visita al Chorrerón de San Fernando","Lunes","7:00 a.m. - 4:10 p.m.","Espacio externo",16,"San Miguel","José German Ventura","Presencial"),
+  A("Vínculos con el mundo","Movilidad Académica y Proyección Global","Periodismo de ciencia","Lunes","8:00 a.m. - 3:30 p.m.","GB-N2-S2 y Campus Salitre",8,"San Miguel","Nurian Luna de Quintanilla","Presencial"),
+  A("Vínculos con el mundo","Voluntariado y Compromiso Social","De carita a carita","Lunes a Jueves (preparación) · Viernes (actividad)","8:50 a.m. - 12:20 p.m. · 12:40 p.m. - 4:10 p.m.","MR-N2-01 y Espacio externo",16,"San Miguel","Roxana Chevez","Presencial"),
+  A("ImpulsaTech","Investigación y Competencias Académicas","Ciencia que inspira, vocación que transforma","Lunes","8:00 a.m. - 5:00 p.m.","Espacio externo",16,"San Miguel","Dra. Milena, Lic. William y Licda Claudia Reyes","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Amigables con la playa","Miércoles","7:00 a.m. - 4:10 p.m.","Espacio externo",16,"San Miguel","Lic. William Villegas","Presencial"),
+  A("ImpulsaTech","Innovación Aplicada y Visitas Técnicas","Dev Expedition: más allá del aula","Viernes","7:00 a.m. - 4:10 p.m.","Espacio externo",16,"San Miguel","Krissia Orellana","Presencial"),
+  A("Vínculos con el mundo","Inclusión, Diversidad y Empatía Comunitaria","Sosteniendo al mundo y su humanidad diversa en nuestras manos","Martes","8:00 a.m. - 12:00 p.m.","Espacio externo",8,"San Miguel","Lic. Allison Palacios","Presencial"),
+  A("Vínculos con el mundo","Inclusión, Diversidad y Empatía Comunitaria","Sosteniendo al mundo y su humanidad diversa en nuestras manos","Miércoles","1:00 p.m. - 5:00 p.m.","Espacio externo",8,"San Miguel","Lic. Allison Palacios","Presencial"),
+  A("Vínculos con el mundo","Voluntariado y Compromiso Social","Jugando, creando y aprendiendo","Lunes","8:00 a.m. - 12:00 p.m.","Espacio externo",8,"San Miguel","Lic. Miguel Yanes","Presencial"),
+  A("Vínculos con el mundo","Voluntariado y Compromiso Social","Jugando, creando y aprendiendo","Lunes","8:00 a.m. - 12:00 p.m.","Espacio externo",8,"San Miguel","Lic. Miguel Yanes","Presencial"),
+  A("Vínculos con el mundo","Inclusión, Diversidad y Empatía Comunitaria","Historias que nos unen","Miércoles","8:00 a.m. - 5:00 p.m.","Espacio externo",8,"San Miguel","Lic. Mayra Ferrufino","Presencial"),
+  A("Vínculos con el mundo","Voluntariado y Compromiso Social","Huellas de sabiduría y ternura","Viernes","8:00 a.m. - 5:00 p.m.","Espacio externo",8,"San Miguel","Lic. Guadalupe Avelar","Presencial"),
+  A("Express-Arte","Literatura, Narrativa y Fomento Lector","Una historia para vivir, imaginar y transformar","Jueves","8:00 a.m. - 12:00 p.m.","Espacio externo",4,"San Miguel","Lcda. Blanca Sosa","Presencial"),
+  A("Vínculos con el mundo","Movilidad Académica y Proyección Global","Intercambio académico a Barcelona, España","Lunes y Martes","7:00 a.m. - 4:10 p.m.","Espacio externo",16,"San Miguel","Ing. Rudy Felipe Henandez","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Eco-Costa: limpieza de playa Punta Chiquirín","Martes","7:00 a.m. - 10:30 a.m.","Espacio externo",16,"San Miguel","Ing. Raúl Flores","Presencial"),
+  A("ImpulsaTech","Innovación Aplicada y Visitas Técnicas","Visita técnica a empresa distribuidora","Jueves","7:00 a.m. - 11:30 a.m.","Espacio externo",16,"San Miguel","Ing. Raúl Flores","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Guardianes del mar","Lunes","7:00 a.m. - 4:10 p.m.","Espacio externo",16,"San Miguel","Arq. Arline Carballo","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Guardianes del mar","Lunes","7:00 a.m. - 4:10 p.m.","Espacio externo",16,"San Miguel","Arq. Arline Carballo","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Manos al mar: jornada de limpieza","Martes","7:00 a.m. - 4:10 p.m.","Espacio externo",16,"San Miguel","Ing. Rene A. Martinez","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Manos al mar: jornada de limpieza","Martes","7:00 a.m. - 4:10 p.m.","Espacio externo",16,"San Miguel","Ing. Rene A. Martinez","Presencial"),
+  A("ImpulsaTech","Innovación Aplicada y Visitas Técnicas","Visita técnica académica al Ingenio Chaparrastique","Martes","7:00 a.m. - 4:10 p.m.","Espacio externo",8,"San Miguel","Ing. Dagoberto Ramírez","Presencial"),
+  A("ImpulsaTech","Innovación Aplicada y Visitas Técnicas","De la teoría a la práctica: visita técnica a empresa Alas Doradas","Viernes","7:00 a.m. - 4:10 p.m.","Espacio externo",8,"San Miguel","Ing. Darwin Cruz","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Misión Costa Limpia: recuperación y economía circular","Martes","7:00 a.m. - 4:10 p.m.","Espacio externo",16,"San Miguel","Ing. Wilmer Hernandez","Presencial"),
+  A("ImpulsaTech","Innovación Aplicada y Visitas Técnicas","Lagunas de estabilización son la solución","Miércoles","7:00 a.m. - 4:10 p.m.","Espacio externo",16,"San Miguel","Inga. Daysi Acosta","Presencial"),
+  A("ImpulsaTech","Innovación Aplicada y Visitas Técnicas","Lagunas de estabilización son la solución","Miércoles","7:00 a.m. - 4:10 p.m.","Espacio externo",16,"San Miguel","Inga. Daysi Acosta","Presencial"),
+  A("ImpulsaTech","Innovación Aplicada y Visitas Técnicas","Del cemento a la construcción","Martes","7:00 a.m. - 4:10 p.m.","Espacio externo",8,"San Miguel","Ing. Elena Quintanilla","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Birdwatching en El Salitre","Miércoles","7:00 a.m. - 10:30 a.m.","Campus Salitre",8,"San Miguel","Ariadna Rivas","Presencial"),
+  A("Express-Arte","Creatividad Manual y Artes Aplicadas","Expresión creativa a través de la flora","Jueves","7:00 a.m. - 4:10 p.m.","Campus Salitre",16,"San Miguel","Ariadna Rivas","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Descubre el rol de tu carrera ante la crisis ambiental","Viernes","7:00 a.m. - 4:10 p.m.","Campus Salitre",16,"San Miguel","Ariadna Rivas","Presencial"),
+  A("ImpulsaTech","Investigación y Competencias Académicas","Intercambio con Semillero de investigación","Martes","Por definir en el grupo cerrado","Espacio externo",16,"San Miguel","Laura Chavarría de Cocar","Presencial"),
+  A("Vínculos con el mundo","Voluntariado y Compromiso Social","De carita a carita","Lunes a Jueves (preparación) · Viernes (actividad)","8:50 a.m. - 12:20 p.m. · 12:40 p.m. - 4:10 p.m.","MR-N2-01 y Espacio externo",16,"San Miguel","Roxana Chevez","Presencial"),
 
   /* ============ PROPUESTAS CRU (Prior 1 y 2) ============ */
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","U-Vibe ambiental","Jueves","7:00 a.m. - 4:10 p.m.","Espacio externo",5,8,"Usulután","Orlando Castillo","Presencial"),
-  A("Vínculos con el mundo","Voluntariado y Compromiso Social","Huellas que inspiran","Lunes, Miércoles y Viernes","8:00 a.m. - 12:00 p.m.","GB_10 y Espacio externo",50,16,"Usulután","Jenny Flores","Presencial"),
-  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Ríos con vida","Martes","7:00 a.m. - 4:10 p.m.","Espacio externo",40,8,"Usulután","Timotea Menjívar","Presencial"),
-  A("ImpulsaTech","Investigación y Competencias Académicas","Ciencia que inspira, vocación que transforma","Lunes","8:00 a.m. - 5:00 p.m.","Espacio externo",150,16,"Usulután","Dra. Milena, Licda Arely","Presencial")
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","U-Vibe ambiental","Jueves","7:00 a.m. - 4:10 p.m.","Espacio externo",8,"Usulután","Orlando Castillo","Presencial"),
+  A("Vínculos con el mundo","Voluntariado y Compromiso Social","Huellas que inspiran","Lunes, Miércoles y Viernes","8:00 a.m. - 12:00 p.m.","GB_10 y Espacio externo",16,"Usulután","Jenny Flores","Presencial"),
+  A("Vínculos con el mundo","Medio Ambiente, Ecología y Sostenibilidad","Ríos con vida","Martes","7:00 a.m. - 4:10 p.m.","Espacio externo",8,"Usulután","Timotea Menjívar","Presencial"),
+  A("ImpulsaTech","Investigación y Competencias Académicas","Ciencia que inspira, vocación que transforma","Lunes","8:00 a.m. - 5:00 p.m.","Espacio externo",16,"Usulután","Dra. Milena, Licda Arely","Presencial")
 ];
