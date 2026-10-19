@@ -27,11 +27,11 @@ const GUIDES = [
     desc: "Control de asistencia, horas acumuladas y recomendaciones para aprovechar cada jornada.",
     url: "", paginas: 4, peso: "800 KB" },
 
-  { titulo: "Buenas prácticas y convivencia", cat: "Participación",
-    desc: "Lineamientos para participar con respeto y aprovechar al máximo cada espacio de aprendizaje.",
-    url: "", paginas: 3, peso: "600 KB" },
+  //{ titulo: "Buenas prácticas y convivencia", cat: "Participación",
+  // desc: "Lineamientos para participar con respeto y aprovechar al máximo cada espacio de aprendizaje.",
+  // url: "", paginas: 3, peso: "600 KB" },
 
-  { titulo: "Cómo contestar la encuesta de satisfacción", cat: "Evaluación",
-    desc: "Tu opinión nos ayuda a mejorar. Conoce dónde y cuándo responder la encuesta final.",
-    url: "", paginas: 2, peso: "500 KB" }
+ // { titulo: "Cómo contestar la encuesta de satisfacción", cat: "Evaluación",
+ // desc: "Tu opinión nos ayuda a mejorar. Conoce dónde y cuándo responder la encuesta final.",
+ // url: "", paginas: 2, peso: "500 KB" }
 ];
