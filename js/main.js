@@ -137,4 +137,23 @@
 
   /* Globo del chatbot */
   const fab = $('.fab'); setTimeout(() => fab.classList.add('hint'), 2500); setTimeout(() => fab.classList.remove('hint'), 7500);
+
+  /* ===== AVISO FLOTANTE ===== */
+  const aviso = $('#aviso-flotante');
+  const cerrarAviso = $('#btn-cerrar-aviso');
+  
+  if (aviso && !sessionStorage.getItem('aviso_cerrado')) {
+    // Mostrar el aviso después de 2 segundos
+    setTimeout(() => {
+      aviso.classList.add('show');
+    }, 2000);
+
+    // Cerrar y recordar en la sesión para no ser molesto
+    cerrarAviso.addEventListener('click', () => {
+      aviso.classList.remove('show');
+      sessionStorage.setItem('aviso_cerrado', 'true');
+    });
+  }
+
+  
 })();
