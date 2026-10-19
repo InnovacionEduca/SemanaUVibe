@@ -21,7 +21,7 @@ const GUIDES = [
 
   { titulo: "Cómo elegir tus actividades", cat: "Primeros pasos",
     desc: "Aprende a combinar talleres según tu horario, tu campus y las habilidades que quieres desarrollar.",
-    url: "", paginas: 5, peso: "1 MB" },
+    url: "https://ugbedu-my.sharepoint.com/:b:/g/personal/smss016224_ugb_edu_sv/IQCUeIlk6K_fSIenrnOvHEWzAX88RK8kSNVz3E476IEJ3Zk?e=eDK4Qu", paginas: 2, peso: "1 MB" },
 
   { titulo: "Cómo completar tus 16 horas", cat: "Participación",
     desc: "Control de asistencia, horas acumuladas y recomendaciones para aprovechar cada jornada.",
