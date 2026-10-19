@@ -17,7 +17,7 @@ const GUIDES = [
 
   { titulo: "Cómo inscribirte paso a paso", cat: "Inscripción",
     desc: "Ingresa al portal del estudiante UGB y registra tus talleres y conferencias sin errores.",
-    url: "https://ugbedu-my.sharepoint.com/:b:/g/personal/smss016224_ugb_edu_sv/IQBPc7y2kSucS65FAgIpL8KNAQIwZ583P6U6laUiqA9yLZQ?e=4BqCaA", paginas: 6, peso: "1 MB" },
+    url: "https://ugbedu-my.sharepoint.com/:b:/g/personal/smss016224_ugb_edu_sv/IQBL14IX4dZyTZFKNEP7AYseAUVShjoBQ5zaEQP5TvPjBKU?e=LkPfyD", paginas: 6, peso: "1 MB" },
 
   { titulo: "Cómo elegir tus actividades", cat: "Primeros pasos",
     desc: "Aprende a combinar talleres según tu horario, tu campus y las habilidades que quieres desarrollar.",
