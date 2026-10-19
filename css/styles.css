@@ -258,3 +258,76 @@ body.uvi-lock .fab{visibility:hidden;pointer-events:none}
 .act__meta-wide span{line-height:1.3}
 .act__meta-wide span{display:flex;flex-direction:column;justify-content:center}
 .foot__priv{margin-top:.4rem;font-size:.8rem;color:var(--soft)}
+
+
+
+/* ===== AVISO FLOTANTE ===== */
+.aviso-flotante {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; /* <-- Ahora está a la izquierda */
+  transform: translateY(100px); /* Animación inicial (solo en Y) */
+  z-index: 100;
+  background: var(--lime);
+  color: var(--deep);
+  padding: 1rem 3rem 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  
+  /* Ajuste de ancho: Máximo 350px en PC, o el ancho de la pantalla en móvil (dejando espacio al bot) */
+  width: max-content;
+  max-width: min(350px, calc(100vw - 110px)); 
+  
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  display: flex;
+  align-items: center;
+}
+
+/* Cuando se activa la clase */
+.aviso-flotante.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.aviso-flotante strong {
+  font-family: var(--f-title);
+  text-transform: uppercase;
+  margin-right: 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.aviso-flotante__close {
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--deep);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.aviso-flotante__close:hover {
+  opacity: 1;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 640px) {
+  .aviso-flotante {
+    font-size: 0.85rem;
+    padding: 1rem 2.5rem 1rem 1rem;
+    bottom: 15px;
+    left: 15px;
+    /* En móviles ocupa casi todo el ancho, menos 95px para no tapar a U-vi */
+    max-width: calc(100vw - 95px); 
+  }
+}
