@@ -13,7 +13,7 @@ const GUIDE_CATS = ["Primeros pasos", "Inscripción", "Participación", "Evaluac
 const GUIDES = [
   { titulo: "Guía completa Semana U-Vibe", destacada: true, cat: "Primeros pasos",
     desc: "Todo en un solo documento: qué es U-Vibe, cómo funciona, las categorías de actividades y cómo completar tus 16 horas.",
-    url: "https://ugbedu-my.sharepoint.com/:b:/g/personal/smss016224_ugb_edu_sv/IQBPc7y2kSucS65FAgIpL8KNAQIwZ583P6U6laUiqA9yLZQ?e=4BqCaA", paginas: 12, peso: "2 MB" },
+    url: "https://ugbedu-my.sharepoint.com/:b:/g/personal/smss016224_ugb_edu_sv/IQAsz_RXrMDETJZgwak1I_HzAbmF2NqBdpr5qJGhYCnjr78?e=2JRT6E", paginas: 12, peso: "2 MB" },
 
   { titulo: "Cómo inscribirte paso a paso", cat: "Inscripción",
     desc: "Ingresa al portal del estudiante UGB y registra tus talleres y conferencias sin errores.",
