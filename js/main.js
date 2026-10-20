@@ -100,8 +100,7 @@
             <li class="act__meta-wide">${ico("user")}<span><small>Instructor · Modalidad</small>${esc(a.instructor)} · ${esc(a.modalidad)}</span></li>
           </ul>
           <div class="act__foot">
-            <span class="act__hours">${ico("clock")}${a.hours} horas</span>
-            <span class="act__seats"><b>${a.seats}</b> cupos</span>
+            <span class="act__hours">${ico("clock")}${a.hours} horas</span>}
           </div>
         </div>
       </article>`).join('')
