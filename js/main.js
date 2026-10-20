@@ -43,10 +43,52 @@
     "ImpulsaTech": "innovacion_aplicada.jpg",
     "Vínculos con el mundo": "medio_ambiente.jpg"
   };
+  
+  
+
   const imgFor = a => {
-    const file = SUBIMG[a.subcat] || SUB_FALLBACK[a.cat] || "medio_ambiente.jpg";
-    return "img/rubros/" + file;
+    // 1. Intentar coincidencia exacta
+    if (SUBIMG[a.subcat]) return "img/rubros/" + SUBIMG[a.subcat];
+    
+    // 2. Si no hay exacta, buscar por palabra clave
+    const sub = a.subcat.toLowerCase();
+    if (sub.includes("liderazgo")) return "img/rubros/desarrollo_personal.jpg";
+    if (sub.includes("derechos")) return "img/rubros/derechos_humanos.jpg";
+    if (sub.includes("finanzas")) return "img/rubros/finanzas.jpg";
+    if (sub.includes("inteligencia")) return "img/rubros/inteligencia_artificial.jpg";
+    if (sub.includes("gestión emocional") || sub.includes("estrés") || sub.includes("mindfulness")) return "img/rubros/gestion_emocional.jpg";
+    if (sub.includes("auxilios")) return "img/rubros/primeros_auxilios.jpg";
+    if (sub.includes("deporte") || sub.includes("actividad física")) return "img/rubros/deporte.jpg";
+    if (sub.includes("bienestar") || sub.includes("arteterapia")) return "img/rubros/bienestar_expresivo.jpg";
+    if (sub.includes("artes visuales") || sub.includes("dibujo")) return "img/rubros/artes_visuales.jpg";
+    if (sub.includes("artes escénicas") || sub.includes("danza")) return "img/rubros/artes_escenicas.jpg";
+    if (sub.includes("música")) return "img/rubros/musica.jpg";
+    if (sub.includes("ofimática") || sub.includes("datos")) return "img/rubros/ofimatica.jpg";
+    if (sub.includes("comunicativas") || sub.includes("debate")) return "img/rubros/habilidades_comunicativas.jpg";
+    if (sub.includes("idiomas")) return "img/rubros/idiomas.jpg";
+    if (sub.includes("expresión")) return "img/rubros/bienestar_creativo.jpg";
+    if (sub.includes("salud")) return "img/rubros/salud_preventiva.jpg";
+    if (sub.includes("ambiente")) return "img/rubros/medio_ambiente.jpg";
+    if (sub.includes("voluntariado")) return "img/rubros/voluntariado.jpg";
+    if (sub.includes("empleabilidad")) return "img/rubros/empleabilidad.jpg";
+    if (sub.includes("movilidad")) return "img/rubros/movilidad_academica.jpg";
+    if (sub.includes("investigación")) return "img/rubros/investigacion.jpg";
+    if (sub.includes("innovación")) return "img/rubros/innovacion_aplicada.jpg";
+    if (sub.includes("inclusión")) return "img/rubros/inclusion_diversidad.jpg";
+    if (sub.includes("literatura")) return "img/rubros/literatura.jpg";
+    if (sub.includes("creatividad")) return "img/rubros/creatividad_manual.jpg";
+
+    // 3. Respaldo por categoría principal
+    const SUB_FALLBACK = {
+      "Bien al 100": "salud_preventiva.jpg",
+      "Express-Arte": "creatividad_manual.jpg",
+      "ImpulsaTech": "innovacion_aplicada.jpg",
+      "Vínculos con el mundo": "medio_ambiente.jpg"
+    };
+    return "img/rubros/" + (SUB_FALLBACK[a.cat] || "medio_ambiente.jpg");
   };
+
+
 
   /* Filtrado */
     /* Filtrado */
@@ -100,7 +142,7 @@
             <li class="act__meta-wide">${ico("user")}<span><small>Instructor · Modalidad</small>${esc(a.instructor)} · ${esc(a.modalidad)}</span></li>
           </ul>
           <div class="act__foot">
-            <span class="act__hours">${ico("clock")}${a.hours} horas</span>}
+            <span class="act__hours">${ico("clock")}${a.hours} horas</span>
           </div>
         </div>
       </article>`).join('')
